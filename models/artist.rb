@@ -1,3 +1,4 @@
+require_relative ('../db/sql_runner.rb')
 
 class Artist
 
@@ -25,5 +26,11 @@ attr_accessor :name
   def self.delete_all()
     sql = "DELETE FROM artists"
     SqlRunner.run(sql)
+  end
+
+  def self.list_all()
+    sql = "SELECT * FROM artists;"
+    all_artists = SqlRunner.run(sql)
+    return all_artists.map { |artist| self.new(artist) }
   end
 end
