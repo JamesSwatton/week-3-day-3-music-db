@@ -8,4 +8,17 @@ attr_accessor :name
     @id = options['id'].to_i if options['id']
     @name = options['name']
   end
+
+
+  def save()
+    db = PG.connect ({ dbname: 'music', host: 'localhost'})
+    sql = "INSERT INTO artists (name) VALUES ($1)
+            RETURNING id;"
+    values = [@name]
+    db.prepare("save_banana", sql)
+    results = db.exec_prepared("save_banana", values)
+    db.close()
+
+    @id = results.first['id'].to_i
+  end
 end
