@@ -22,6 +22,13 @@ class Album
     @id = results.first['id'].to_i
   end
 
+  def artist()
+    sql = "SELECT name FROM artists WHERE id = $1;"
+    values = [@artist_id]
+    result = SqlRunner.run(sql, values)
+    return result[0]['name']
+  end
+
   def self.list_by_artist(artist_id)
     sql = "SELECT * FROM albums WHERE artist_id = $1"
     values = [artist_id]

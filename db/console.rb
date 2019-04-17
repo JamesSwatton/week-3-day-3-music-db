@@ -26,4 +26,6 @@ album5.save()
 
 # p Artist.list_all()
 # p Album.list_all()
-p Album.list_by_artist(artist1.id)
+# p Album.list_by_artist(artist1.id)
+
+p album1.artist()
