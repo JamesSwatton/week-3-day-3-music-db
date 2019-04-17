@@ -24,8 +24,15 @@ album3.save()
 album4.save()
 album5.save()
 
+album1.title = "A Hard Day's Night"
+album1.update()
+
+artist1.name = "The Rutles"
+artist1.update()
+
+
 # p Artist.list_all()
 # p Album.list_all()
 # p Album.list_by_artist(artist1.id)
 
-p album1.artist()
+# p album1.artist()
